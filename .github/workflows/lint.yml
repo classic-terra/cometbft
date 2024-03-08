@@ -12,7 +12,7 @@ on:
   pull_request:
   push:
     branches:
-      - v0.37.x
+      - release/v0.37.x-classic
 
 jobs:
   golangci:

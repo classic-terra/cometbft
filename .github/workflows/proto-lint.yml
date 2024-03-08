@@ -5,7 +5,7 @@ on:
       - 'proto/**'
   push:
     branches:
-      - v0.37.x
+      - release/v0.37.x-classic
     paths:
       - 'proto/**'
 
