@@ -337,7 +337,6 @@ func (mem *CListMempool) addTx(memTx *mempoolTx, isOracleTx bool) {
 
 	e := mem.txs.PushBack(memTx)
 	mem.txsMap.Store(txKey, e)
-	mem.txsMap.Store(memTx.tx.Key(), e)
 	atomic.AddInt64(&mem.txsBytes, int64(len(memTx.tx)))
 	mem.metrics.TxSizeBytes.Observe(float64(len(memTx.tx)))
 }
@@ -347,6 +346,7 @@ func (mem *CListMempool) addTx(memTx *mempoolTx, isOracleTx bool) {
 //   - resCbRecheck (lock not held) if tx was invalidated
 func (mem *CListMempool) removeTx(tx types.Tx, elem *clist.CElement, removeFromCache bool) {
 	txKey := tx.Key()
+
 	mem.txs.Remove(elem)
 	elem.DetachPrev()
 
