@@ -640,6 +640,7 @@ func (mem *CListMempool) ReapMaxTxs(max int) types.Txs {
 		memTx := e.Value.(*mempoolTx)
 		txs = append(txs, memTx.tx)
 	}
+
 	return txs
 }
 
