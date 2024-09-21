@@ -439,7 +439,7 @@ func (mem *CListMempool) resCbFirstTime(
 
 			memTx := &mempoolTx{
 				height:    mem.height,
-				gasWanted: r.CheckTx.GasWanted,
+				gasWanted: r.CheckTx.GasWanted - r.CheckTx.TaxGas,
 				tx:        tx,
 			}
 			memTx.senders.Store(peerID, true)

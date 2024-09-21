@@ -236,7 +236,8 @@ message ResponseCheckTx {
   // mempool_error is set by CometBFT.
   // ABCI applictions creating a ResponseCheckTX should not set mempool_error.
   string mempool_error = 11;
-  bool is_oracle_tx = 12 [(gogoproto.jsontag) = "is_oracle_tx,omitempty"]; // mempool logic
+  bool   is_oracle_tx  = 12 [(gogoproto.jsontag) = "is_oracle_tx,omitempty"];  // mempool logic
+  int64  tax_gas       = 13 [json_name = "tax_gas"];
 }
 
 message ResponseDeliverTx {
