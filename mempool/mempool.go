@@ -136,8 +136,8 @@ func PostCheckMaxGas(maxGas int64) PostCheckFunc {
 				res.GasWanted)
 		}
 		if res.GasWanted-res.TaxGas > maxGas {
-			return fmt.Errorf("gas wanted %d is greater than max gas %d",
-				res.GasWanted, maxGas)
+			return fmt.Errorf("gas wanted %d - tax gas %d = %d is greater than max gas %d",
+				res.GasWanted, res.TaxGas, res.GasWanted-res.TaxGas, maxGas)
 		}
 
 		return nil
